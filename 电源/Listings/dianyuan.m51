@@ -1,0 +1,301 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/05/2020  03:34:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\lcd.obj TO .\Objects\dianyuan PRINT (.\Listings\dianyuan.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\lcd.obj (LCD)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\dianyuan (LCD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0180H     UNIT         ?CO?LCD
+            CODE    0980H     00D3H     UNIT         ?PR?MAIN?LCD
+            CODE    0A53H     004FH     UNIT         ?PR?_SHOW?LCD
+            CODE    0AA2H     002DH     UNIT         ?C?LIB_CODE
+            CODE    0ACFH     0021H     UNIT         ?PR?INIT?LCD
+            CODE    0AF0H     001FH     UNIT         ?PR?_CLEAR_SCREEN?LCD
+            CODE    0B0FH     001AH     UNIT         ?PR?_SELECT_SCREEN?LCD
+            CODE    0B29H     0011H     UNIT         ?PR?BUSY?LCD
+            CODE    0B3AH     0010H     UNIT         ?PR?_WCMD?LCD
+            CODE    0B4AH     0010H     UNIT         ?PR?_WDATA?LCD
+            CODE    0B5AH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0B66H     0006H     UNIT         ?PR?_SET_PAGE?LCD
+            CODE    0B6CH     0006H     UNIT         ?PR?_SET_LINE?LCD
+            CODE    0B72H     0006H     UNIT         ?PR?_SET_COLUMN?LCD
+            CODE    0B78H     0006H     UNIT         ?PR?_SET_ONOFF?LCD
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\dianyuan (LCD)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?LCD
+
+?PR?MAIN?LCD                   -----    -----
+  +--> ?PR?INIT?LCD
+  +--> ?PR?_CLEAR_SCREEN?LCD
+  +--> ?PR?_SET_LINE?LCD
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2020  03:34:37  PAGE 2
+
+
+  +--> ?CO?LCD
+  +--> ?PR?_SHOW?LCD
+
+?PR?INIT?LCD                   -----    -----
+  +--> ?PR?BUSY?LCD
+  +--> ?PR?_SELECT_SCREEN?LCD
+  +--> ?PR?_SET_ONOFF?LCD
+  +--> ?PR?_CLEAR_SCREEN?LCD
+  +--> ?PR?_SET_LINE?LCD
+
+?PR?_SET_ONOFF?LCD             -----    -----
+  +--> ?PR?_WCMD?LCD
+
+?PR?_WCMD?LCD                  -----    -----
+  +--> ?PR?BUSY?LCD
+
+?PR?_CLEAR_SCREEN?LCD          -----    -----
+  +--> ?PR?_SELECT_SCREEN?LCD
+  +--> ?PR?_SET_PAGE?LCD
+  +--> ?PR?_SET_COLUMN?LCD
+  +--> ?PR?_WDATA?LCD
+
+?PR?_SET_PAGE?LCD              -----    -----
+  +--> ?PR?_WCMD?LCD
+
+?PR?_SET_COLUMN?LCD            -----    -----
+  +--> ?PR?_WCMD?LCD
+
+?PR?_WDATA?LCD                 -----    -----
+  +--> ?PR?BUSY?LCD
+
+?PR?_SET_LINE?LCD              -----    -----
+  +--> ?PR?_WCMD?LCD
+
+?PR?_SHOW?LCD                  0008H    0006H
+  +--> ?PR?_SELECT_SCREEN?LCD
+  +--> ?PR?_SET_PAGE?LCD
+  +--> ?PR?_SET_COLUMN?LCD
+  +--> ?PR?_WDATA?LCD
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\dianyuan (LCD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LCD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  B:00A0H.4       PUBLIC        EN
+  C:0B4AH         PUBLIC        _wdata
+  C:0840H         PUBLIC        fang
+  C:0960H         PUBLIC        jian
+  B:00A0H.2       PUBLIC        RS
+  C:0980H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2020  03:34:37  PAGE 3
+
+
+  B:00A0H.3       PUBLIC        RW
+  C:08C0H         PUBLIC        qiao
+  C:0B3AH         PUBLIC        _wcmd
+  C:0900H         PUBLIC        bai
+  C:0800H         PUBLIC        huan
+  C:0940H         PUBLIC        kong
+  C:0ACFH         PUBLIC        init
+  C:0820H         PUBLIC        ying
+  C:0B72H         PUBLIC        _set_column
+  C:08E0H         PUBLIC        cui
+  C:0A53H         PUBLIC        _show
+  C:0B29H         PUBLIC        busy
+  C:08A0H         PUBLIC        ren
+  B:00A0H.0       PUBLIC        CS1
+  B:00A0H.1       PUBLIC        CS2
+  C:0B78H         PUBLIC        _set_onoff
+  C:0860H         PUBLIC        wen
+  C:0B66H         PUBLIC        _set_page
+  C:0B6CH         PUBLIC        _set_line
+  C:0920H         PUBLIC        du
+  C:0880H         PUBLIC        yi
+  C:0B0FH         PUBLIC        _select_screen
+  C:0AF0H         PUBLIC        _clear_screen
+  -------         PROC          BUSY
+  C:0B29H         LINE#         72
+  C:0B29H         LINE#         73
+  C:0B2CH         LINE#         74
+  C:0B2EH         LINE#         75
+  C:0B30H         LINE#         76
+  C:0B32H         LINE#         77
+  C:0B37H         LINE#         78
+  C:0B39H         LINE#         79
+  -------         ENDPROC       BUSY
+  -------         PROC          _WCMD
+  D:0007H         SYMBOL        cmd
+  C:0B3AH         LINE#         80
+  C:0B3AH         LINE#         81
+  C:0B3DH         LINE#         82
+  C:0B3FH         LINE#         83
+  C:0B41H         LINE#         84
+  C:0B43H         LINE#         85
+  C:0B47H         LINE#         86
+  C:0B49H         LINE#         87
+  -------         ENDPROC       _WCMD
+  -------         PROC          _WDATA
+  D:0007H         SYMBOL        dat
+  C:0B4AH         LINE#         88
+  C:0B4AH         LINE#         89
+  C:0B4DH         LINE#         90
+  C:0B4FH         LINE#         91
+  C:0B51H         LINE#         92
+  C:0B53H         LINE#         93
+  C:0B57H         LINE#         94
+  C:0B59H         LINE#         95
+  -------         ENDPROC       _WDATA
+  -------         PROC          _SET_PAGE
+  D:0007H         SYMBOL        page
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2020  03:34:37  PAGE 4
+
+
+  C:0B66H         LINE#         96
+  C:0B66H         LINE#         97
+  C:0B69H         LINE#         98
+  -------         ENDPROC       _SET_PAGE
+  -------         PROC          _SET_LINE
+  D:0007H         SYMBOL        line
+  C:0B6CH         LINE#         100
+  C:0B6CH         LINE#         101
+  C:0B6FH         LINE#         102
+  -------         ENDPROC       _SET_LINE
+  -------         PROC          _SET_COLUMN
+  D:0007H         SYMBOL        column
+  C:0B72H         LINE#         104
+  C:0B72H         LINE#         105
+  C:0B72H         LINE#         106
+  C:0B75H         LINE#         107
+  -------         ENDPROC       _SET_COLUMN
+  -------         PROC          _SET_ONOFF
+  D:0007H         SYMBOL        onoff
+  C:0B78H         LINE#         109
+  C:0B78H         LINE#         110
+  C:0B7BH         LINE#         111
+  -------         ENDPROC       _SET_ONOFF
+  -------         PROC          _SELECT_SCREEN
+  D:0007H         SYMBOL        screen
+  C:0B0FH         LINE#         113
+  C:0B0FH         LINE#         114
+  C:0B1AH         LINE#         115
+  C:0B1FH         LINE#         116
+  C:0B24H         LINE#         117
+  C:0B28H         LINE#         118
+  C:0B28H         LINE#         119
+  C:0B28H         LINE#         120
+  -------         ENDPROC       _SELECT_SCREEN
+  -------         PROC          _CLEAR_SCREEN
+  D:0007H         SYMBOL        screen
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0005H         SYMBOL        j
+  -------         ENDDO         
+  C:0AF0H         LINE#         121
+  C:0AF0H         LINE#         122
+  C:0AF0H         LINE#         123
+  C:0AF3H         LINE#         124
+  C:0AF5H         LINE#         125
+  C:0AFAH         LINE#         126
+  C:0AFFH         LINE#         127
+  C:0B01H         LINE#         128
+  C:0B0AH         LINE#         129
+  C:0B0EH         LINE#         130
+  -------         ENDPROC       _CLEAR_SCREEN
+  -------         PROC          INIT
+  C:0ACFH         LINE#         131
+  C:0ACFH         LINE#         132
+  C:0AD2H         LINE#         133
+  C:0AD7H         LINE#         134
+  C:0ADAH         LINE#         135
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2020  03:34:37  PAGE 5
+
+
+  C:0ADFH         LINE#         136
+  C:0AE3H         LINE#         137
+  C:0AE8H         LINE#         138
+  C:0AEBH         LINE#         139
+  -------         ENDPROC       INIT
+  -------         PROC          _SHOW
+  D:0006H         SYMBOL        screen
+  D:0005H         SYMBOL        page
+  D:0004H         SYMBOL        column
+  D:000BH         SYMBOL        p
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0A53H         LINE#         141
+  C:0A55H         LINE#         142
+  C:0A55H         LINE#         143
+  C:0A58H         LINE#         144
+  C:0A5DH         LINE#         145
+  C:0A62H         LINE#         146
+  C:0A64H         LINE#         147
+  C:0A7AH         LINE#         148
+  C:0A80H         LINE#         149
+  C:0A85H         LINE#         150
+  C:0A87H         LINE#         151
+  C:0AA1H         LINE#         152
+  -------         ENDPROC       _SHOW
+  -------         PROC          MAIN
+  C:0980H         LINE#         153
+  C:0980H         LINE#         154
+  C:0983H         LINE#         155
+  C:0988H         LINE#         156
+  C:098DH         LINE#         161
+  C:099FH         LINE#         164
+  C:09AFH         LINE#         167
+  C:09BFH         LINE#         169
+  C:09CFH         LINE#         171
+  C:09E1H         LINE#         172
+  C:09F1H         LINE#         173
+  C:0A01H         LINE#         174
+  C:0A11H         LINE#         175
+  C:0A21H         LINE#         176
+  C:0A31H         LINE#         177
+  C:0A41H         LINE#         178
+  C:0A51H         LINE#         179
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LCD
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0AA2H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0345H BYTE (40%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=897
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

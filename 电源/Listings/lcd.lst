@@ -1,0 +1,210 @@
+C51 COMPILER V9.54   LCD                                                                   10/05/2020 03:34:36 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Objects\lcd.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE lcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\lcd.l
+                    -st) TABS(2) OBJECT(.\Objects\lcd.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<intrins.h>
+   3          #define uchar unsigned char
+   4          #define uint unsigned int
+   5          //测试
+   6          unsigned char code huan[]= // 欢
+   7          {
+   8          0x04,0x24,0x44,0x84,0x64,0x9C,0x40,0x30,0x0F,0xC8,0x08,0x08,0x28,0x18,0x00,0x00,
+   9          0x10,0x08,0x06,0x01,0x82,0x4C,0x20,0x18,0x06,0x01,0x06,0x18,0x20,0x40,0x80,0x00
+  10          };
+  11          unsigned char code ying[]= //迎
+  12          {
+  13          0x40,0x40,0x42,0xCC,0x00,0x00,0xFC,0x04,0x02,0x00,0xFC,0x04,0x04,0xFC,0x00,0x00,
+  14          0x00,0x40,0x20,0x1F,0x20,0x40,0x4F,0x44,0x42,0x40,0x7F,0x42,0x44,0x43,0x40,0x00
+  15          };
+  16          unsigned char code fang[]= //访
+  17          {
+  18          0x40,0x40,0x42,0xCC,0x00,0x08,0x08,0xF8,0x89,0x8E,0x88,0x88,0x88,0x08,0x08,0x00,
+  19          0x00,0x00,0x00,0x3F,0x90,0x48,0x30,0x0F,0x00,0x40,0x80,0x40,0x3F,0x00,0x00,0x00
+  20          };
+  21          unsigned char code wen[]=  //问
+  22          {
+  23          0x00,0xF8,0x01,0x02,0x00,0xE2,0x22,0x22,0x22,0xE2,0x02,0x02,0x02,0xFE,0x00,0x00,
+  24          0x00,0xFF,0x00,0x00,0x00,0x1F,0x08,0x08,0x08,0x1F,0x00,0x40,0x80,0x7F,0x00,0x00
+  25          };
+  26          unsigned char code yi[]=  //刘
+  27          {
+  28          0x08,0x28,0x48,0x89,0x0E,0x88,0x78,0x08,0x08,0x00,0xF8,0x00,0x00,0xFF,0x00,0x00,
+  29          0x40,0x20,0x10,0x09,0x06,0x19,0x60,0x00,0x00,0x00,0x0F,0x40,0x80,0x7F,0x00,0x00
+  30          };
+  31          unsigned char code ren[]= //航
+  32          {
+  33          0x80,0xFC,0x96,0xE5,0x84,0xFC,0x00,0x08,0xC8,0x49,0x4A,0xC8,0x08,0x08,0x00,0x00,
+  34          0x80,0x7F,0x02,0x4C,0x80,0x7F,0x80,0x60,0x1F,0x00,0x00,0x3F,0x40,0x40,0x78,0x00
+  35          };
+  36          unsigned char code qiao[]= //憔
+  37          {
+  38          0x10,0x0C,0x24,0x24,0x24,0x24,0x25,0xE6,0x24,0x24,0x24,0x24,0x24,0x14,0x0C,0x00,
+  39          0x02,0x02,0x02,0x02,0x02,0x42,0x82,0x7F,0x02,0x02,0x02,0x02,0x02,0x02,0x02,0x00
+  40          };
+  41          unsigned char code cui[]=  //悴
+  42          {
+  43          0x00,0x00,0xF8,0x88,0x88,0x88,0x88,0xFF,0x88,0x88,0x88,0x88,0xF8,0x00,0x00,0x00,
+  44          0x00,0x00,0x1F,0x08,0x08,0x08,0x08,0x7F,0x88,0x88,0x88,0x88,0x9F,0x80,0xF0,0x00
+  45          };
+  46          unsigned char code bai[]=  //百
+  47          {
+  48          0x00,0x00,0xFE,0x02,0x82,0x82,0x82,0x82,0xFA,0x82,0x82,0x82,0x82,0x82,0x02,0x00,
+  49          0x80,0x60,0x1F,0x40,0x40,0x40,0x40,0x40,0x7F,0x40,0x40,0x44,0x58,0x40,0x40,0x00
+  50          };
+  51          unsigned char code du[]= //度
+  52          {
+  53          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  54          0x00,0x00,0x36,0x36,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+C51 COMPILER V9.54   LCD                                                                   10/05/2020 03:34:36 PAGE 2   
+
+  55          
+  56          };
+  57          unsigned char code kong[]= //空
+  58          {
+  59          0x00,0xE0,0x10,0x08,0x08,0x10,0xE0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  60          0x00,0x0F,0x10,0x20,0x20,0x10,0x0F,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+  61          };
+  62          unsigned char code jian[]= //间
+  63          {
+  64          0x08,0x78,0x88,0x00,0x00,0xC8,0x38,0x08,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  65          0x00,0x00,0x07,0x38,0x0E,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+  66          };
+  67          sbit CS1=P2^0;//片选1,低电平有效，CS1=0开左屏幕，CS1=1关左屏幕
+  68          sbit CS2=P2^1;//片选2，低电平有效，CS2=0开右屏幕，CS2=1关右屏幕
+  69          sbit RS=P2^2;//数据，指令选择信号，RS=1为数据操作，RS=0为写指令或读状态（一般为读忙标志）
+  70          sbit RW=P2^3;//读写选择信号，RW=1为读选通，RW=0为写选通
+  71          sbit EN=P2^4;//读写使能信号
+  72          void busy()//忙检测函数
+  73          {P0=0X00; //这句不能少
+  74   1      RS=0; 
+  75   1      RW=1;
+  76   1      EN=1;
+  77   1      while(P0&0X80);//P0&0X80结果为真则一直执行空操作，也就是说P0&0X80为0则结束循环
+  78   1      EN=0;
+  79   1      }
+  80          void wcmd(uchar cmd)
+  81          {busy(); //每次写入指令或数据之前都进行忙检测
+  82   1      RS=0;
+  83   1      RW=0;
+  84   1      P0=cmd;
+  85   1      EN=1;_nop_();_nop_();//在EN下降沿写入数据和指令
+  86   1      EN=0;
+  87   1      }
+  88          void wdata(uchar dat) //写命令和写数据只在RS=0或RS=1上不同，其余都相同
+  89          {busy();
+  90   1      RS=1;
+  91   1      RW=0;
+  92   1      P0=dat;
+  93   1      EN=1;_nop_();_nop_();//在EN下降沿写入数据和指令
+  94   1      EN=0;
+  95   1      }
+  96          void set_page(uchar page)//设置页，12864LCD共有8页，每页有8行点阵点。
+  97          {page=0xb8|page;  //首页地址为0XB8
+  98   1      wcmd(page);     //page取值范围为0~7,表示第1到8页
+  99   1      }
+ 100          void set_line(uchar line)//设置显示的起始行，共有0——63行，一般从0行开始显示
+ 101          {line=0xc0|line;  //起始行地址0XC0
+ 102   1      wcmd(line); //line取值范围为0~63，表示第1到64行
+ 103   1      }
+ 104          void set_column(uchar column)//设置显示的列
+ 105          {//column=column&0x3f; //列的最大值为0X3F，即64
+ 106   1      column=0x40|column;  //列的首地址为0X40,
+ 107   1      wcmd(column);    //column的取值范围为0~63，共64列
+ 108   1      }
+ 109          void set_onoff(uchar onoff)//设置显示开关，onoff取值为0或1
+ 110          {onoff|=0x3e;//0X3E是关显示，0X3F是开显示
+ 111   1      wcmd(onoff);//所以若onoff为0，则表示关显示，onoff为1，则表示开显示
+ 112   1      }
+ 113          void select_screen(uchar screen)//选屏，screen取值范围为0,1,2
+ 114          {switch(screen)
+ 115   1      {case 0:CS1=0;CS2=0;break; //全屏
+ 116   2      case 1:CS1=0;CS2=1;break;  //左半屏
+C51 COMPILER V9.54   LCD                                                                   10/05/2020 03:34:36 PAGE 3   
+
+ 117   2      case 2:CS1=1;CS2=0;break;  //右半屏
+ 118   2      default:break;
+ 119   2      }
+ 120   1      }
+ 121          void clear_screen(uchar screen)//清屏
+ 122          {uchar i,j;
+ 123   1      select_screen(screen);//先选屏
+ 124   1      for(i=0;i<8;i++)//控制页数0——7，共8页
+ 125   1      {set_page(i);//设置页
+ 126   2      set_column(0); //设置列，每页都从第1列开始，共64列
+ 127   2      for(j=0;j<64;j++)//控制列数0——63，共64列
+ 128   2      wdata(0x00);//写入0，列地址指针会自动加1 
+ 129   2      }
+ 130   1      }
+ 131          void init() //LCD初始化
+ 132          {busy(); //忙检测
+ 133   1      select_screen(0);//选屏，全屏
+ 134   1      set_onoff(0); //关显示
+ 135   1      select_screen(0); //选屏，全屏
+ 136   1      set_onoff(1);   //开显示
+ 137   1      select_screen(0); //选屏，全屏
+ 138   1      clear_screen(0);  //清屏
+ 139   1      set_line(0);    //起始行：0
+ 140   1      }
+ 141          void show(uchar screen,uchar page,uchar column,uchar *p)//显示一个汉字，一个汉字有32字节数据 
+ 142          {uchar i; //screen表示选择屏幕，page表示页，column表示列，*p表示汉字的数组
+ 143   1      select_screen(screen); //选屏
+ 144   1      set_page(page);    //设置页，写上半页
+ 145   1      set_column(column);//设置列
+ 146   1      for(i=0;i<16;i++) //控制16列的数据输出
+ 147   1      wdata(p[i]);   //汉字的上半部分
+ 148   1      set_page(page+1); //写下半页
+ 149   1      set_column(column); //控制列
+ 150   1      for(i=0;i<16;i++) //控制16列的数据输出
+ 151   1      wdata(p[i+16]);  //汉字的下半部分
+ 152   1      }
+ 153          void main()
+ 154          {init();  //LCD初始化
+ 155   1      clear_screen(0); //清屏
+ 156   1      set_line(0);   //显示开始行
+ 157   1      //1表示左屏显示，0表示从0页开始显示。因为一页只有8行点，
+ 158   1      //而显示一个汉字需要16行点（整屏有64行点），所以显示一个汉字需要2页
+ 159   1      //第0页显示“欢”字的上半部分，第1页显示“欢”汉字的下半部分
+ 160   1      //2*16表示从第32列开始显示，前面空出0~31列（即2个字的位置）
+ 161   1      show(1,0,2*16,huan);//欢
+ 162   1      //1表示左屏显示，0表示从0页开始显示
+ 163   1      //3*16表示从第48列开始显示，前面空出0~477列（即3个汉字的位置）
+ 164   1      show(1,0,3*16,ying);//迎
+ 165   1      //2表示右屏显示，0表示从0页开始显示
+ 166   1      //0*16表示从第0列开始显示（即第一个汉字的位置）
+ 167   1      show(2,0,0*16,fang);//访
+ 168   1      //1*16表示从第16列开始显示，前面空出0~15列（即一个汉字的位置）
+ 169   1      show(2,0,1*16,wen);  //问
+ 170   1      //左屏开，从第3页（共8页）第0列开始显示，即第3，4页显示”伊人憔悴百度空间“几个字
+ 171   1      show(1,2,0*16,yi);   //伊
+ 172   1      show(1,2,1*16,ren);  //人
+ 173   1      show(1,2,2*16,qiao); //憔
+ 174   1      show(1,2,3*16,cui);  //悴
+ 175   1      show(2,2,0*16,bai);  //百
+ 176   1      show(2,2,1*16,du);   //度
+ 177   1      show(2,2,2*16,kong); //空
+ 178   1      show(2,2,3*16,jian); //间
+C51 COMPILER V9.54   LCD                                                                   10/05/2020 03:34:36 PAGE 4   
+
+ 179   1      while(1);
+ 180   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    453    ----
+   CONSTANT SIZE    =    384    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

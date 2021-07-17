@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\dianyuan.obj" 
+TO ".\Objects\a60" 
+PRINT(".\Listings\a60.m51") RAMSIZE(256) 

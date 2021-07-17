@@ -1,0 +1,6 @@
+--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections
+-I.\RTE\_Target_1
+-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+-ID:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="525" -DSTM32F10X_MD
+-o .\objects\dianyuan.o --omf_browse .\objects\dianyuan.crf --depend .\objects\dianyuan.d "dianyuan.c"
